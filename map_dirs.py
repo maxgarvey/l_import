@@ -1,6 +1,9 @@
+'''/map_dirs.py'''
 import os
 
-def map(start_point):
+def _map(start_point):
+    '''this function creates a mapping of the dirs and an order
+    according to depth of subdirs.'''
     if not os.path.isdir(start_point):
         return {}
     else:
