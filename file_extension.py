@@ -1,8 +1,11 @@
+'''/file_extension.py'''
+
 def standardize(name, mode='lower'):
+    '''this method will change the file extension to match a standardized format.'''
     try:
         name_base = name.split('.')[0]
         name_parts = name.split('.')[1:]
-    except:
+    except Exception, err:
         return name
 
     print 'name_base: {}'.format(name_base) #debug
@@ -13,7 +16,10 @@ def standardize(name, mode='lower'):
         for part in name_parts:
             name_parts[index] = name_parts[index].lower()
             index += 1
-        final_name = '.'.join([name_base,('.'.join(name_parts))])
+        if len(name_parts) > 0:
+            final_name = '.'.join([name_base,('.'.join(name_parts))])
+        else:
+            final_name = name_base
         return final_name
 
     elif mode == 'upper':
@@ -21,7 +27,10 @@ def standardize(name, mode='lower'):
         for part in name_parts:
             name_parts[index] = name_parts[index].upper()
             index += 1
-        final_name = '.'.join([name_base,('.'.join(name_parts))])
+        if len(name_parts) > 0:
+            final_name = '.'.join([name_base,('.'.join(name_parts))])
+        else:
+            final_name = name_base
         return final_name
 
     elif mode == 'camel':
@@ -30,7 +39,10 @@ def standardize(name, mode='lower'):
             name_parts[index] = name_parts[index].lower()
             name_parts[index] = name_parts[index][0].upper() + name_parts[index][1:]
             index += 1
-        final_name = '.'.join([name_base,('.'.join(name_parts))])
+        if len(name_parts) > 0:
+            final_name = '.'.join([name_base,('.'.join(name_parts))])
+        else:
+            final_name = name_base
         return final_name
 
     else:
