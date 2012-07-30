@@ -1,10 +1,13 @@
 '''/new_name.py'''
 
-def linux_name(existing_filename, camel_case=False, lower_case=True):
+def linux_name(existing_filename, mode='lc_underscore'):
     '''this method will take an existing filename and return the
     linuxized filename camelcase or underscored'''
+
     l_filename = ''
-    if not camel_case:
+
+    #camelcase
+    if mode == 'camelcase':
         l_filename = existing_filename.replace('\\ ','_').replace(' ','_')
     else:
         position = 0
@@ -32,10 +35,19 @@ def linux_name(existing_filename, camel_case=False, lower_case=True):
 
         l_filename = existing_filename
 
-    if lower_case:
+    #lowercase with underscores
+    if mode == 'lc_underscore':
         try:
             l_filename = l_filename[:l_filename.rindex('.')].lower() + l_filename[l_filename.rindex('.'):]
         except Exception, err:
             l_filename = l_filename.lower()
+
+    #uppercase with underscores
+    if mode == 'uc_underscore':
+        try:
+            l_filename = l_filename[:l_filename.rindex('.')].upper() + l_filename[l_filename.rindex('.'):]
+        except Exception, err:
+            l_filename = l_filename.upper()
+       
 
     return l_filename
