@@ -1,17 +1,22 @@
 '''/file_extension.py'''
+import os
 
-def standardize(name, mode='lower'):
+def standardize(name, conf, verbose):
     '''this method will change the file extension to match a standardized format.'''
-    try:
-        name_base = name.split('.')[0]
-        name_parts = name.split('.')[1:]
-    except Exception, err:
-        return name
+    mode = conf['file_extensions']
+    #try:
+    #    base_path  = os.split(name)[0]
+    name_base  = name.split('.')[0]
+    name_parts = name.split('.')[1:]
+    #except Exception, err:
+    #    return name
 
-    print 'name_base: {}'.format(name_base) #debug
-    print 'name_parts: {}'.format(name_parts) #debug
+    if verbose or conf['verbose']:
+        #print 'base_path: {}'.format(base_path) #debug
+        print 'name_base: {}'.format(name_base) #debug
+        print 'name_parts: {}'.format(name_parts) #debug
 
-    if mode == 'lower':
+    if mode == 'lowercase':
         index = 0
         for part in name_parts:
             name_parts[index] = name_parts[index].lower()
@@ -22,7 +27,7 @@ def standardize(name, mode='lower'):
             final_name = name_base
         return final_name
 
-    elif mode == 'upper':
+    elif mode == 'uppercase':
         index = 0
         for part in name_parts:
             name_parts[index] = name_parts[index].upper()
@@ -33,7 +38,7 @@ def standardize(name, mode='lower'):
             final_name = name_base
         return final_name
 
-    elif mode == 'camel':
+    elif mode == 'camelcase':
         index = 0
         for part in name_parts:
             name_parts[index] = name_parts[index].lower()
