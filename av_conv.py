@@ -8,7 +8,7 @@ def convert(filepath, conf):
     output_formats = ['.aiff','.alsa','.wav','.webm','.swf','.vcd','.spdif','.avi','.rm','.mp3','.mp4','.ogg','.oma','.oss','.mov','.mjpeg','mkv','m4v','h264','gif']
 
     filename, extension = os.path.splitext(filepath)
-    if extension not in input_formats:
+    if extension.lower() not in input_formats:
         pass
 
     elif conf['convert_audio'].keys()[0]:
