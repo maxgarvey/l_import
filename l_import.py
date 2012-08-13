@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from conf import *
 from file_extension import *
 from map_dirs import *
