@@ -33,6 +33,8 @@ def change_names(args, conf):
                 os.rename(os.path.join(my_pop, _file), new_filename)
             convert(new_filename, conf)
             ps_convert(new_filename, conf)
+            if conf['convert_pdf_to_ps'] and conf['convert_ps_to_pdf']:
+                print 'both pdf to ps and ps to pdf conversions are selected in conf file.'
         new_name = standardize(linux_name(my_pop, conf), conf, False) 
         if args.verbose or conf['verbose']:
             print 'shutil.move("' + my_pop + '", "' + new_name + '")' #debug
