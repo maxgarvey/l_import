@@ -4,6 +4,7 @@ from new_name import linux_name
 from file_extension import standardize
 from av_conv import convert
 from pdf_conv import ps_convert
+from img_conv import img_convert
 import os
 import shutil
 
@@ -32,6 +33,7 @@ def change_names(args, conf):
                 new_filename = standardize(linux_name(os.path.join(my_pop, _file), conf), conf, args.verbose) 
                 os.rename(os.path.join(my_pop, _file), new_filename)
             convert(new_filename, conf)
+            img_convert(new_filename, conf)
             ps_convert(new_filename, conf)
             if conf['convert_pdf_to_ps'] and conf['convert_ps_to_pdf']:
                 print 'both pdf to ps and ps to pdf conversions are selected in conf file.'

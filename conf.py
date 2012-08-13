@@ -6,12 +6,19 @@ conf = {
 
     'filenames' : 'lc_underscore',  #lc_underscore, uc_underscore, or camelcase
 
-    'convert_audio' : {True: {'end_format': '.ogg'}},   #boolean is wether we want mp3s converted or not,
+    'convert_audio' : {True: {'end_format': '.ogg'}},   #boolean, whether we want audio files converted or not,
                                                     #the string is the desired end format
 
-    'convert_pdf_to_ps' : True, #boolean, wether we want to convert pdfs to postscript
+    'convert_img' : {True: {'end_format': '.png'}},   #boolean, whether we want img files converted or not,
+                                                      #the string is the desired end format
 
-    'convert_ps_to_pdf' : False, #boolean, wether we want to convert pdfs to postscript
+    'convert_word' : {True: {'end_format' : '.odt'}}, #boolean, whether we want Word files (or Word-like
+                                                      #programs' files) converted. Inner dict has desired
+                                                      #end format.
+
+    'convert_pdf_to_ps' : True #boolean, wether we want to convert pdfs to postscript
+
+    'convert_ps_to_pdf' : False #boolean, wether we want to convert pdfs to postscript
 
     'new_file_tree' : {False: {'new_file_tree_prefix' : '_'}},  #Setting this to true will keep the
                                               #original materials as well. prepending the prefix
