@@ -16,9 +16,9 @@ conf = {
                                                       #programs' files) converted. Inner dict has desired
                                                       #end format.
 
-    'convert_pdf_to_ps' : True #boolean, wether we want to convert pdfs to postscript
+    'convert_pdf_to_ps' : True, #boolean, wether we want to convert pdfs to postscript
 
-    'convert_ps_to_pdf' : False #boolean, wether we want to convert pdfs to postscript
+    'convert_ps_to_pdf' : False, #boolean, wether we want to convert pdfs to postscript
 
     'new_file_tree' : {False: {'new_file_tree_prefix' : '_'}},  #Setting this to true will keep the
                                               #original materials as well. prepending the prefix
