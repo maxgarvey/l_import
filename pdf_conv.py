@@ -9,8 +9,12 @@ def ps_convert(filename, conf):
     extension = os.path.splitext(filename)[1].lower()
     if extension == '.pdf':
         if conf['convert_pdf_to_ps'] and not conf['convert_ps_to_pdf']:
+            if conf['verbose']:
+                print "pdf2ps {}".format(filename)
             call(['pdf2ps', filename])
 
     elif extension == '.ps':
         if conf['convert_ps_to_pdf'] and not conf['convert_pdf_to_ps']:
+            if conf['verbose']:
+                print "ps2pdf {}".format(filename)
             call(['ps2pdf', filename])

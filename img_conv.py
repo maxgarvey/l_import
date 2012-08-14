@@ -16,6 +16,8 @@ def img_convert(filepath, conf):
         if end_format not in output_formats:
             print 'desired output format: {} not supported.'.format(end_format)
         else:
+            if conf['verbose']:
+                print 'converting {0} to {1}'.format(filepath, filename + end_format)
             try:
                 call(['convert', filepath, filename + end_format])
                 try:

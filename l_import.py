@@ -29,9 +29,10 @@ if __name__ == "__main__":
         finally:
             os.chdir(cwd)
 
-    if args.verbose or conf['verbose']:
+    if args.verbose:
+        conf['verbose'] = True
+
+    if conf['verbose']:
         print 'args:{0}\nconf{1}'.format(args, conf)
 
     change_names(args, conf)
-    
-
